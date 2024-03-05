@@ -12,3 +12,4 @@ export async function load({ cookies, url }) {
 		throw redirect(303, `/login?redirectTo=${url.pathname}`);
 	}
 }
+
