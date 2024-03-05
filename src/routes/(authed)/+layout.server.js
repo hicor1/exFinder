@@ -1,11 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 
-export function load({ cookies, url }) {
-	if (!cookies.get('logged_in')) {
-		throw redirect(303, `/login?redirectTo=${url.pathname}`);
-	}
-}
-
 // 관리자 계정인지 확인!!
 import { verifyLogin } from '$lib/server/auth.js';
 
