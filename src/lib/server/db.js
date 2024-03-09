@@ -1,5 +1,5 @@
 // DB connection은 최초 한번만 불러와야한다!!
-import db from '$lib/server/db_conn';
+import {db, supabaseDB} from '$lib/server/db_conn';
 
 
 
@@ -80,3 +80,5 @@ export const createUserAccount = async ({ service_name, id, pwd, customer_name, 
       return { status: 'error', message: error.message }; // 에러 메시지만 반환
   }
 };
+
+
