@@ -1,7 +1,5 @@
 // DB connection은 최초 한번만 불러와야한다!!
-import {db, supabaseDB} from '$lib/server/db_conn';
-
-
+import {db} from '$lib/server/db_conn';
 
 
 // 전체 회원정보 불러오는 코드 ( 남은날짜 계산하여 추가 )

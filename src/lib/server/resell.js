@@ -1,15 +1,15 @@
-import {db, supabaseDB} from '$lib/server/db_conn';
+import {resellDB} from '$lib/server/db_conn';
 
-// 전체 회원정보 getKREAM 코드 ( 남은날짜 계산하여 추가 )
+// 즉시구매가격_보관판매입찰 값이 존재하며, 그 값과 okmall_즉시구매가격 값의 차이값(절대값이 아닌)이 높은 순으로 정렬하여 전체 회원정보 가져오기
 export const getKREAM = async () => {
     const SQL_QUERY = `
-    SELECT *
-    FROM kream
-    WHERE "즉시구매가격_일반판매입찰" IS NOT NULL AND "즉시구매가격_일반판매입찰" <> ''
-    AND "1일평균체결건수" IS NOT NULL AND "1일평균체결건수" <> ''
-    AND "평균거래가격_보관판매입찰" IS NOT NULL AND CAST("평균거래가격_보관판매입찰" AS FLOAT) <> 0
+    SELECT *, 
+      (즉시구매가격_보관판매입찰::NUMERIC - okmall_즉시구매가격::NUMERIC) AS 마진
+    FROM kream_matched
+    WHERE 즉시구매가격_보관판매입찰 IS NOT NULL AND 즉시구매가격_보관판매입찰 <> ''
+    ORDER BY 마진 DESC;
   `;
   
-    const data = await supabaseDB.any(SQL_QUERY);
+    const data = await resellDB.any(SQL_QUERY);
     return data;
 };
