@@ -18,65 +18,93 @@
 <!---------------------------------------------------------->
 <!------------------ ⬇⬇⬇ HTML 영역 ⬇⬇⬇ ------------------>
 
+<div class="flex justify-center mt-5">
+    <div class="stats shadow">
+      
+        <div class="stat place-items-center">
+          <div class="stat-title">Downloads</div>
+          <div class="stat-value">31K</div>
+          <div class="stat-desc">From January 1st to February 1st</div>
+        </div>
+        
+        <div class="stat place-items-center">
+          <div class="stat-title">Users</div>
+          <div class="stat-value text-secondary">4,200</div>
+          <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
+        </div>
+        
+        <div class="stat place-items-center">
+          <div class="stat-title">New Registers</div>
+          <div class="stat-value">1,200</div>
+          <div class="stat-desc">↘︎ 90 (14%)</div>
+        </div>
+        
+    </div>
+  </div>
+  
 
-<div class="flex justify-between w-full">
-    <!-- 첫 번째 카드 -->
-    <div class="flex-shrink-0 card shadow-xl flex-col w-96 mr-4">
-        <div class="card-body flex-grow flex flex-col justify-start">
+
+<div class="divider"></div> 
+
+<div class="flex justify-between">
+    <div class="card w-1/2 bg-base-100 shadow-xl mr-2">
+        <figure class="px-10 pt-10">
+            <img src={target_data['제품_이미지']} alt="Shoes" class="rounded-lg object-contain h-96 w-full" />
+        </figure>
+        <div class="card-body text-left">
             <h1 class="card-title mt-0 mb-2">KREAM</h1>
-            <ul class="mt-0">
-                <li class="mb-0"><strong>제품명:</strong> {target_data['제품명_원문']}</li>
-                <li class="mb-0"><strong>옵션:</strong> {target_data['옵션_1']}</li>
-                <li class="mb-0"><strong>색상:</strong> {target_data['색상']}</li>
+            <ul>
+                <li><strong>제품명:</strong> {target_data['제품명_원문']}</li>
+                <li><strong>옵션:</strong> {target_data['옵션_1']}</li>
+                <li><strong>색상:</strong> {target_data['색상']}</li>
             </ul>
         </div>
-        <figure><img src={target_data['제품_이미지']} alt="Shoes" /></figure>
     </div>
 
-    
-    <!-- 두 번째 카드 -->
-    <div class="flex-shrink-0 card shadow-xl flex-col w-96 ml-4">
-        <div class="card-body flex-grow flex flex-col justify-start">
+    <div class="card w-1/2 bg-base-100 shadow-xl ml-2">
+        <figure class="px-10 pt-10">
+            <img src={target_data['okmall_이미지']} alt="Shoes" class="rounded-lg object-contain h-96 w-full" />
+        </figure>
+        <div class="card-body text-left">
             <h1 class="card-title mt-0 mb-2">OKmall</h1>
-            <ul class="mt-0">
-                <li class="mb-0"><strong>제품명:</strong> {target_data['okmall_제품명_원문']}</li>
-                <li class="mb-0"><strong>옵션:</strong> {target_data['okmall_옵션_1']}</li>
-                <li class="mb-0"><strong>색상:</strong> {target_data['okmall_색상']}</li>
+            <ul>
+                <li><strong>제품명:</strong> {target_data['okmall_제품명_원문']}</li>
+                <li><strong>옵션:</strong> {target_data['okmall_옵션_1']}</li>
+                <li><strong>색상:</strong> {target_data['okmall_색상']}</li>
             </ul>
         </div>
-        <figure><img src={target_data['okmall_이미지']} alt="Shoes" /></figure>
     </div>
 </div>
+
 
 <div class="divider"></div> 
 
 <div class="flex flex-col w-full">
-    <div class="grid h-auto card bg-gray-100 rounded-box place-items-center"> <!-- 배경색 변경 -->
-        <div class="flex items-center mb-2">
-            <h2 class="text-2xl font-bold">🔍마진전략</h2> 
+    <div class="grid h-auto card bg-gray-100 rounded-box">
+        <div class="flex items-center mb-2 text-left">
+            <h2 class="text-2xl font-bold pl-4 pt-4">💡 마진전략</h2> 
         </div>
-        <h2 class="text-gray-500 font-bold mb-4">OKmall에서 매입해서 KREAM에 판매하는 전략입니다</h2>
+        
+        <h2 class="text-gray-500 font-bold mb-4 text-left pl-5">OKmall에서 매입해서 KREAM에 판매하는 전략입니다</h2>
 
-        <div class="grid grid-cols-4 gap-2">
+        <div class="grid grid-cols-4 gap-2 text-left pl-5 pb-3">
             <div class="mb-2">
-                <p>OKmall 구매가격 :</p>
-                <p>{target_data['okmall_즉시구매가격']}</p>
+                <p>OKmall 구매가격</p>
+                <p><b>{new Intl.NumberFormat('ko-KR').format(target_data['okmall_즉시구매가격'])} 원</b></p>
             </div>
             <div class="mb-2">
-                <p>OKmall 구매가격 :</p>
-                <p>{target_data['okmall_즉시구매가격']}</p>
+                <p>KREAM 일반판매입찰</p>
+                <p><b>{new Intl.NumberFormat('ko-KR').format(target_data['즉시구매가격_일반판매입찰'])} 원</b></p>
             </div>
             <div class="mb-2">
-                <p>OKmall 구매가격 :</p>
-                <p>{target_data['okmall_즉시구매가격']}</p>
+                <p>KREAM 보관판매입찰</p>
+                <p><b>{new Intl.NumberFormat('ko-KR').format(target_data['즉시구매가격_보관판매입찰'])} 원</b></p>
             </div>
-            <div class="mb-2">
-                <p>OKmall 구매가격 :</p>
-                <p>{target_data['okmall_즉시구매가격']}</p>
-            </div>
+            <!-- 중복된 OKmall 구매가격 항목이 있으므로, 이 부분은 제거하거나 다른 정보로 대체 필요 -->
         </div>
     </div> 
 </div>
+
 
 
 

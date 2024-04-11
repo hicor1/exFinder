@@ -36,7 +36,8 @@
     function goToDetailPage(productID, option){
         if (typeof window !== 'undefined') {
             const url = `/리셀정보/kream/kream_detail/${productID}/${option}`;
-            window.open(url, '_blank'); // 새로운 탭으로 URL을 엽니다.
+            //window.open(url, '_blank'); // 새로운 탭으로 URL을 엽니다.
+            window.location.href = url; // 현재 페이지의 URL을 변경합니다.
         }
     }
 
