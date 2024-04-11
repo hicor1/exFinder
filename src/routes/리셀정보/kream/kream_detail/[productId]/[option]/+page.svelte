@@ -52,7 +52,7 @@
             <img src={target_data['제품_이미지']} alt="Shoes" class="rounded-lg object-contain h-96 w-full" />
         </figure>
         <div class="card-body text-left">
-            <h1 class="card-title mt-0 mb-2">KREAM</h1>
+            <h1 class="card-title mt-0 mb-2"><a href={target_data['제품_URL']}>KREAM</a></h1>
             <ul>
                 <li><strong>제품명:</strong> {target_data['제품명_원문']}</li>
                 <li><strong>옵션:</strong> {target_data['옵션_1']}</li>
@@ -66,7 +66,7 @@
             <img src={target_data['okmall_이미지']} alt="Shoes" class="rounded-lg object-contain h-96 w-full" />
         </figure>
         <div class="card-body text-left">
-            <h1 class="card-title mt-0 mb-2">OKmall</h1>
+            <h1 class="card-title mt-0 mb-2"> <a href={target_data['okmall_URL']}>OKmall</a></h1>
             <ul>
                 <li><strong>제품명:</strong> {target_data['okmall_제품명_원문']}</li>
                 <li><strong>옵션:</strong> {target_data['okmall_옵션_1']}</li>
